@@ -74,8 +74,8 @@ namespace bn {
 ///  Class: unsigned_integert
 ///////////////////////////////////////////////////////////////////////
 template 
-<class TImplements = mp::unsigned_integer_implement, 
- class TExtends = mp::unsigned_integert<BIGNUM*> >
+<class TImplements = numera::mp::unsigned_integer_implement, 
+ class TExtends = numera::mp::unsigned_integert<BIGNUM*> >
 
 class _EXPORT_CLASS unsigned_integert: virtual public TImplements, public TExtends {
 public:
@@ -93,6 +93,7 @@ public:
         this->init();
         if (!(this->create_msb(msb, msbsize))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...this->create(value = " << x_to_string(msb, msbsize) << ") failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }
@@ -101,6 +102,7 @@ public:
         this->init();
         if (!(this->create(value))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...this->create(value = " << value << ") failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }
@@ -109,6 +111,7 @@ public:
         this->init();
         if (!(this->create(copy))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }        
@@ -117,6 +120,7 @@ public:
         this->init();
         if (!(this->create())) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }        

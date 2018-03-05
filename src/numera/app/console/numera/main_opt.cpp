@@ -13,30 +13,23 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: base.cpp
+///   File: main_opt.cpp
 ///
 /// Author: $author$
-///   Date: 2/26/2018
+///   Date: 3/5/2018
 ///////////////////////////////////////////////////////////////////////
-#include "numera/base/base.hpp"
-
-#if defined(_NAMESPACE)
-#define _OLD_NAMESPACE _NAMESPACE
-#undef _NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
-#define _NAMESPACE numera
-
-#include "xos/framework/base/base.cpp"
-#include "xos/framework/io/io.cpp"
-
-#if defined(_NAMESPACE)
-#undef _NAMESPACE
-#define _NAMESPACE _OLD_NAMESPACE
-#undef _OLD_NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
+#include "numera/app/console/numera/main_opt.hpp"
 
 namespace numera {
+namespace app {
+namespace console {
+namespace numera {
 
+///////////////////////////////////////////////////////////////////////
+///  Class: main_opt
+///////////////////////////////////////////////////////////////////////
+
+} // namespace numera 
+} // namespace console 
+} // namespace app 
 } // namespace numera 

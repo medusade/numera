@@ -117,29 +117,37 @@ public:
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
     unsigned_integert(const byte_t* msb, size_t msbsize) {
+        this->init();
         if (!(this->create_msb(msb, msbsize))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...this->create(value = " << x_to_string(msb, msbsize) << ") failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }
     }
     unsigned_integert(const unsigned& value) {
+        this->init();
         if (!(this->create(value))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...this->create(value = " << value << ") failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }
     }
     unsigned_integert(const unsigned_integert& copy) {
+        this->init();
         if (!(this->create(copy))) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }        
     }
     unsigned_integert() {
+        this->init();
         if (!(this->create())) {
             const creator_exception e = failed_to_create;
+            this->fini();
             LOG_ERROR("...failed throw(const creator_exception e = failed_to_create)...");
             throw(e);
         }
@@ -147,9 +155,11 @@ public:
     virtual ~unsigned_integert() {
         if (!(this->destroyed())) {
             const creator_exception e = failed_to_destroy;
+            this->fini();
             LOG_ERROR("...this->destroyed() failed throw(const creator_exception e = failed_to_destroy)...");
             throw(e);
         }
+        this->fini();
     }
 
     ///////////////////////////////////////////////////////////////////////
@@ -215,6 +225,13 @@ public:
     }
     virtual ssize_t get_msb(byte_t* msb, size_t msbsize) {
         return 0;
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    virtual void init() {
+    }
+    virtual void fini() {
     }
 
     ///////////////////////////////////////////////////////////////////////

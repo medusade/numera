@@ -13,30 +13,36 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: base.cpp
+///   File: main_main.cpp
 ///
 /// Author: $author$
-///   Date: 2/26/2018
+///   Date: 3/4/2018
 ///////////////////////////////////////////////////////////////////////
-#include "numera/base/base.hpp"
-
-#if defined(_NAMESPACE)
-#define _OLD_NAMESPACE _NAMESPACE
-#undef _NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
-#define _NAMESPACE numera
-
-#include "xos/framework/base/base.cpp"
-#include "xos/framework/io/io.cpp"
-
-#if defined(_NAMESPACE)
-#undef _NAMESPACE
-#define _NAMESPACE _OLD_NAMESPACE
-#undef _OLD_NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
+#include "numera/console/main_main.hpp"
+#include "xos/console/logger.hpp"
 
 namespace numera {
+namespace console {
 
+} // namespace console 
 } // namespace numera 
+
+///////////////////////////////////////////////////////////////////////
+/// Function: main
+///////////////////////////////////////////////////////////////////////
+int main(int argc, char** argv, char** env) {
+    int err = 0;
+
+    ERR_LOG_DEBUG("try {...")
+    try {
+        xos::console::logger logger();
+
+        ERR_LOG_DEBUG("xos::base::main::the_main(argc, argv, env)...");
+        err = xos::base::main::the_main(argc, argv, env);
+        ERR_LOG_DEBUG("..." << err << " = xos::base::main::the_main(argc, argv, env)");
+        ERR_LOG_DEBUG("...} try");
+    } catch (...) {
+        ERR_LOG_ERROR("...} catch (...)");
+    }
+    return err;
+}

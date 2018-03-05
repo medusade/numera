@@ -13,30 +13,18 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: base.cpp
+///   File: unsigned_integers.cpp
 ///
 /// Author: $author$
-///   Date: 2/26/2018
+///   Date: 2/28/2018
 ///////////////////////////////////////////////////////////////////////
-#include "numera/base/base.hpp"
-
-#if defined(_NAMESPACE)
-#define _OLD_NAMESPACE _NAMESPACE
-#undef _NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
-#define _NAMESPACE numera
-
-#include "xos/framework/base/base.cpp"
-#include "xos/framework/io/io.cpp"
-
-#if defined(_NAMESPACE)
-#undef _NAMESPACE
-#define _NAMESPACE _OLD_NAMESPACE
-#undef _OLD_NAMESPACE
-#else // defined(_NAMESPACE)
-#endif // defined(_NAMESPACE)
+#include "numera/mp/unsigned_integers.hpp"
+#include "numera/mp/unsigned_integer.cpp"
+#include "numera/mp/bn/unsigned_integer.cpp"
+#include "numera/mp/mp/unsigned_integer.cpp"
 
 namespace numera {
+namespace mp {
 
+} // namespace mp 
 } // namespace numera 

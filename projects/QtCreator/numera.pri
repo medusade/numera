@@ -37,7 +37,7 @@ BN_VERSION_MINOR = 0
 BN_VERSION_RELEASE = 0
 BN_VERSION = $${BN_VERSION_MAJOR}.$${BN_VERSION_MINOR}.$${BN_VERSION_RELEASE}
 BN_NAME = bn
-BN_GROUP = gnu
+BN_GROUP = openssl
 BN_DIR = $${BN_GROUP}/$${BN_NAME}-$${BN_VERSION}
 BN_PKG_DIR = $${BN_NAME}
 BN_HOME_BUILD = $${HOME}/build/$${BN_NAME}
@@ -78,7 +78,7 @@ MP_VERSION_MINOR = 0
 MP_VERSION_RELEASE = 0
 MP_VERSION = $${MP_VERSION_MAJOR}.$${MP_VERSION_MINOR}.$${MP_VERSION_RELEASE}
 MP_NAME = mp
-MP_GROUP = openssl
+MP_GROUP = gnu
 MP_DIR = $${MP_GROUP}/$${MP_NAME}-$${MP_VERSION}
 MP_PKG_DIR = $${MP_NAME}
 MP_HOME_BUILD = $${HOME}/build/$${MP_NAME}
@@ -104,6 +104,8 @@ MP_SRC = $${MP_THIRDPARTY_PRJ}/src
 #$${MP_HOME_BUILD_INCLUDE} \
 
 mp_INCLUDEPATH += \
+$${MP_SRC}/$${MP_GROUP}/$${MP_NAME}/$${MP_NAME}n \
+$${MP_SRC}/$${MP_GROUP}/$${MP_NAME}/$${MP_NAME}z \
 $${MP_SRC}/$${MP_GROUP}/$${MP_NAME} \
 $${MP_SRC}/$${MP_GROUP} \
 $${MP_SRC} \
@@ -221,6 +223,8 @@ numera_INCLUDEPATH += \
 $${NUMERA_SRC} \
 $${nadir_INCLUDEPATH} \
 $${rostra_INCLUDEPATH} \
+$${bn_INCLUDEPATH} \
+$${mp_INCLUDEPATH} \
 $${build_numera_INCLUDEPATH} \
 
 # numera DEFINES
@@ -228,6 +232,8 @@ $${build_numera_INCLUDEPATH} \
 numera_DEFINES += \
 $${rostra_DEFINES} \
 $${nadir_DEFINES} \
+$${bn_DEFINES} \
+$${mp_DEFINES} \
 $${build_numera_DEFINES} \
 
 # numera LIBS

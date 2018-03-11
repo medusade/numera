@@ -191,7 +191,29 @@ public:
 
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
-    unsigned_integer& add
+    virtual int compare(const unsigned_integer& a, const unsigned_integer& b) {
+        int unequal = 0;
+        BIGNUM* detached = 0, *b_ = 0, *a_ = 0;
+        if ((detached = this->attached_to()) 
+            && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
+            LOG_DEBUG("::BN_cmp(a_, b_)...");
+            unequal = ::BN_cmp(a_, b_);
+        }
+        return unequal;
+    }
+    virtual unsigned_integer& copy(unsigned_integer& a, const unsigned_integer& b) {
+        BIGNUM* detached = 0, *b_ = 0, *a_ = 0;
+        if ((detached = this->attached_to()) 
+            && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
+            LOG_DEBUG("::BN_copy(a_, b_)...");
+            ::BN_copy(a_, b_);
+        }
+        return (unsigned_integer&)(*this);
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    virtual unsigned_integer& add
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         if ((detached = this->attached_to()) 
@@ -201,7 +223,7 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-    unsigned_integer& sub
+    virtual unsigned_integer& sub
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         if ((detached = this->attached_to()) 
@@ -214,7 +236,7 @@ public:
 
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
-    unsigned_integer& mul
+    virtual unsigned_integer& mul
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         if ((detached = this->attached_to()) 
@@ -224,7 +246,7 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-    unsigned_integer& div
+    virtual unsigned_integer& div
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *t_ = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         BN_CTX* ctx_ = 0;
@@ -235,7 +257,7 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-    unsigned_integer& mod
+    virtual unsigned_integer& mod
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         BN_CTX* ctx_ = 0;
@@ -249,7 +271,7 @@ public:
 
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
-    unsigned_integer& mod_inv
+    virtual unsigned_integer& mod_inv
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *t_ = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         BN_CTX* ctx_ = 0;
@@ -270,7 +292,7 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-    unsigned_integer& mod_exp
+    virtual unsigned_integer& mod_exp
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& e, const unsigned_integer& b) {
         BIGNUM* detached = 0, *e_ = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         BN_CTX* ctx_ = 0;
@@ -281,7 +303,7 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-    unsigned_integer& exp
+    virtual unsigned_integer& exp
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         BN_CTX* ctx_ = 0;

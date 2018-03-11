@@ -13,46 +13,21 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: main.hpp
+///   File: main.cpp
 ///
 /// Author: $author$
-///   Date: 3/5/2018
+///   Date: 3/10/2018
 ///////////////////////////////////////////////////////////////////////
-#ifndef _NUMERA_APP_CONSOLE_NUMERA_MAIN_HPP
-#define _NUMERA_APP_CONSOLE_NUMERA_MAIN_HPP
-
-#include "numera/app/console/numera/main_opt.hpp"
-#include "mpz_msb.h"
+#include "numera/app/console/rsa/main.hpp"
 
 namespace numera {
 namespace app {
 namespace console {
-namespace numera {
+namespace rsa {
 
-typedef main_opt_implements main_implements;
-typedef main_opt main_extends;
-///////////////////////////////////////////////////////////////////////
-///  Class: main
-///////////////////////////////////////////////////////////////////////
-class _EXPORT_CLASS main: virtual public main_implements, public main_extends {
-public:
-    typedef main_implements Implements;
-    typedef main_extends Extends;
+static main the_main;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
-    main() {
-    }
-    virtual ~main() {
-    }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
-};
-
-} // namespace numera 
+} // namespace rsa 
 } // namespace console 
 } // namespace app 
 } // namespace numera 
-
-#endif // _NUMERA_APP_CONSOLE_NUMERA_MAIN_HPP 

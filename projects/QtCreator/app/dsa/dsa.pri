@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: dsa.pri
 #
 # Author: $author$
-#   Date: 3/8/2018
+#   Date: 3/23/2019
 #
 # QtCreator .pri file for numera executable dsa
 ########################################################################
@@ -74,7 +74,5 @@ $${numera_FRAMEWORKS} \
 #
 dsa_LIBS += \
 $${numera_LIBS} \
-$${bn_LIBS} \
-$${mp_LIBS} \
 
 

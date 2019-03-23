@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: numera.pri
 #
 # Author: $author$
-#   Date: 3/4/2018
+#   Date: 3/22/2019
 #
 # QtCreator .pri file for numera executable numera
 ########################################################################
@@ -53,17 +53,16 @@ $${numera_DEFINES} \
 # numera_exe HEADERS
 #
 numera_exe_HEADERS += \
-$${NUMERA_SRC}/numera/base/base.hpp \
 $${NUMERA_SRC}/numera/console/main_opt.hpp \
 $${NUMERA_SRC}/numera/console/main.hpp \
 $${NUMERA_SRC}/numera/console/main_main.hpp \
+$${NUMERA_SRC}/numera/console/lib/numera/version/main.hpp \
 $${NUMERA_SRC}/numera/app/console/numera/main_opt.hpp \
 $${NUMERA_SRC}/numera/app/console/numera/main.hpp \
 
 # numera_exe SOURCES
 #
 numera_exe_SOURCES += \
-$${NUMERA_SRC}/numera/base/base.cpp \
 $${NUMERA_SRC}/numera/console/main_main.cpp \
 $${NUMERA_SRC}/numera/app/console/numera/main_opt.cpp \
 $${NUMERA_SRC}/numera/app/console/numera/main.cpp \
@@ -78,4 +77,5 @@ $${numera_FRAMEWORKS} \
 #
 numera_exe_LIBS += \
 $${numera_LIBS} \
+
 

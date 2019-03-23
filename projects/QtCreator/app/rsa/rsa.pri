@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: rsa.pri
 #
 # Author: $author$
-#   Date: 3/10/2018
+#   Date: 3/23/2019
 #
 # QtCreator .pri file for numera executable rsa
 ########################################################################
@@ -53,15 +53,17 @@ $${numera_DEFINES} \
 # rsa HEADERS
 #
 rsa_HEADERS += \
-$${NUMERA_SRC}/numera/console/mp/main_opt.hpp \
-$${NUMERA_SRC}/numera/console/mp/main.hpp \
+$${NUMERA_SRC}/numera/console/main_main.hpp \
+$${NUMERA_SRC}/numera/app/console/rsa/public.hpp \
+$${NUMERA_SRC}/numera/app/console/rsa/private.hpp \
 $${NUMERA_SRC}/numera/app/console/rsa/main.hpp \
 
 # rsa SOURCES
 #
 rsa_SOURCES += \
 $${NUMERA_SRC}/numera/console/main_main.cpp \
-$${NUMERA_SRC}/numera/console/mp/main_opt.cpp \
+$${NUMERA_SRC}/numera/app/console/rsa/public.cpp \
+$${NUMERA_SRC}/numera/app/console/rsa/private.cpp \
 $${NUMERA_SRC}/numera/app/console/rsa/main.cpp \
 
 ########################################################################
@@ -74,7 +76,5 @@ $${numera_FRAMEWORKS} \
 #
 rsa_LIBS += \
 $${numera_LIBS} \
-$${bn_LIBS} \
-$${mp_LIBS} \
 
 

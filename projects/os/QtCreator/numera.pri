@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: numera.pri
 #
 # Author: $author$
-#   Date: 3/4/2018
+#   Date: 3/22/2019
 #
 # Os QtCreator .pri file for numera
 ########################################################################
@@ -25,20 +25,28 @@ UNAME = $$system(uname)
 contains(UNAME,Darwin) {
 NUMERA_OS = macosx
 } else {
+contains(UNAME,Linux) {
 NUMERA_OS = linux
-}
+} else {
+NUMERA_OS = windows
+} # contains(UNAME,Linux)
+} # contains(UNAME,Darwin)
 
 #CONFIG += c++11
 #CONFIG += c++0x
 
 ########################################################################
 # bn
+BN_THIRDPARTY_PKG_MAKE_BLD = $${BN_THIRDPARTY_PKG}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
+BN_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${BN_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
 BN_THIRDPARTY_PKG_BLD = $${BN_THIRDPARTY_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-BN_THIRDPARTY_PRJ_BLD = $${BN_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+BN_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${BN_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 BN_PKG_BLD = $${OTHER_BLD}/$${BN_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 BN_PRJ_BLD = $${OTHER_BLD}/$${BN_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+#BN_LIB = $${BN_THIRDPARTY_PKG_MAKE_BLD}/lib
+BN_LIB = $${BN_THIRDPARTY_PRJ_MAKE_BLD}/lib
 #BN_LIB = $${BN_THIRDPARTY_PKG_BLD}/lib
-BN_LIB = $${BN_THIRDPARTY_PRJ_BLD}/lib
+#BN_LIB = $${BN_THIRDPARTY_PRJ_BLD}/lib
 #BN_LIB = $${BN_PKG_BLD}/lib
 #BN_LIB = $${BN_PRJ_BLD}/lib
 #BN_LIB = $${NUMERA_LIB}
@@ -47,16 +55,21 @@ BN_LIB = $${BN_THIRDPARTY_PRJ_BLD}/lib
 #
 bn_LIBS += \
 -L$${BN_LIB}/lib$${BN_NAME} \
+-L$${BN_LIB} \
 -l$${BN_NAME} \
 
 ########################################################################
 # mp
+MP_THIRDPARTY_PKG_MAKE_BLD = $${MP_THIRDPARTY_PKG}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
+MP_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${MP_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
 MP_THIRDPARTY_PKG_BLD = $${MP_THIRDPARTY_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-MP_THIRDPARTY_PRJ_BLD = $${MP_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+MP_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${MP_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 MP_PKG_BLD = $${OTHER_BLD}/$${MP_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 MP_PRJ_BLD = $${OTHER_BLD}/$${MP_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+#MP_LIB = $${MP_THIRDPARTY_PKG_MAKE_BLD}/lib
+MP_LIB = $${MP_THIRDPARTY_PRJ_MAKE_BLD}/lib
 #MP_LIB = $${MP_THIRDPARTY_PKG_BLD}/lib
-MP_LIB = $${MP_THIRDPARTY_PRJ_BLD}/lib
+#MP_LIB = $${MP_THIRDPARTY_PRJ_BLD}/lib
 #MP_LIB = $${MP_PKG_BLD}/lib
 #MP_LIB = $${MP_PRJ_BLD}/lib
 #MP_LIB = $${NUMERA_LIB}
@@ -65,40 +78,50 @@ MP_LIB = $${MP_THIRDPARTY_PRJ_BLD}/lib
 #
 mp_LIBS += \
 -L$${MP_LIB}/lib$${MP_NAME} \
--l$${MP_NAME} \
 -L$${MP_LIB}/lib$${MP_NAME}n \
--l$${MP_NAME}n \
 -L$${MP_LIB}/lib$${MP_NAME}z \
+-L$${MP_LIB} \
+-l$${MP_NAME} \
+-l$${MP_NAME}n \
 -l$${MP_NAME}z \
 
 ########################################################################
-# rostra
-ROSTRA_THIRDPARTY_PKG_BLD = $${ROSTRA_THIRDPARTY_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-ROSTRA_THIRDPARTY_PRJ_BLD = $${ROSTRA_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-ROSTRA_PKG_BLD = $${OTHER_BLD}/$${ROSTRA_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-ROSTRA_PRJ_BLD = $${OTHER_BLD}/$${ROSTRA_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-#ROSTRA_LIB = $${ROSTRA_THIRDPARTY_PKG_BLD}/lib
-#ROSTRA_LIB = $${ROSTRA_THIRDPARTY_PRJ_BLD}/lib
-#ROSTRA_LIB = $${ROSTRA_PKG_BLD}/lib
-#ROSTRA_LIB = $${ROSTRA_PRJ_BLD}/lib
-ROSTRA_LIB = $${NUMERA_LIB}
+# mbuint
+MBUINT_THIRDPARTY_PKG_MAKE_BLD = $${MBUINT_THIRDPARTY_PKG}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
+MBUINT_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${MBUINT_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
+MBUINT_THIRDPARTY_PKG_BLD = $${MBUINT_THIRDPARTY_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+MBUINT_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${MBUINT_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+MBUINT_PKG_BLD = $${OTHER_BLD}/$${MBUINT_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+MBUINT_PRJ_BLD = $${OTHER_BLD}/$${MBUINT_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+#MBUINT_LIB = $${MBUINT_THIRDPARTY_PKG_MAKE_BLD}/lib
+MBUINT_LIB = $${MBUINT_THIRDPARTY_PRJ_MAKE_BLD}/lib
+#MBUINT_LIB = $${MBUINT_THIRDPARTY_PKG_BLD}/lib
+#MBUINT_LIB = $${MBUINT_THIRDPARTY_PRJ_BLD}/lib
+#MBUINT_LIB = $${MBUINT_PKG_BLD}/lib
+#MBUINT_LIB = $${MBUINT_PRJ_BLD}/lib
+#MBUINT_LIB = $${NUMERA_LIB}
 
-# rostra LIBS
+# mbuint LIBS
 #
-_rostra_LIBS += \
--L$${ROSTRA_LIB}/lib$${ROSTRA_NAME} \
--l$${ROSTRA_NAME} \
+mbuint_LIBS += \
+-L$${MBUINT_LIB}/lib$${MBUINT_NAME} \
+-L$${MBUINT_LIB} \
+-l$${MBUINT_NAME} \
 
 ########################################################################
 # nadir
+NADIR_THIRDPARTY_PKG_MAKE_BLD = $${NADIR_THIRDPARTY_PKG}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
+NADIR_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${NADIR_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/$${BUILD_CONFIG}
 NADIR_THIRDPARTY_PKG_BLD = $${NADIR_THIRDPARTY_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
-NADIR_THIRDPARTY_PRJ_BLD = $${NADIR_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+NADIR_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${NADIR_THIRDPARTY_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 NADIR_PKG_BLD = $${OTHER_BLD}/$${NADIR_PKG}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
 NADIR_PRJ_BLD = $${OTHER_BLD}/$${NADIR_PRJ}/build/$${NUMERA_OS}/QtCreator/$${BUILD_CONFIG}
+#NADIR_LIB = $${NADIR_THIRDPARTY_PKG_MAKE_BLD}/lib
+#NADIR_LIB = $${NADIR_THIRDPARTY_PRJ_MAKE_BLD}/lib
 #NADIR_LIB = $${NADIR_THIRDPARTY_PKG_BLD}/lib
 #NADIR_LIB = $${NADIR_THIRDPARTY_PRJ_BLD}/lib
-#NADIR_LIB = $${NADIR_PKG_BLD}/lib
-NADIR_LIB = $${NADIR_PRJ_BLD}/lib
+NADIR_LIB = $${NADIR_PKG_BLD}/lib
+#NADIR_LIB = $${NADIR_PRJ_BLD}/lib
 #NADIR_LIB = $${NUMERA_LIB}
 
 # nadir LIBS
@@ -122,14 +145,22 @@ numera_DEFINES += \
 #
 numera_LIBS += \
 $${nadir_LIBS} \
-$${rostra_LIBS} \
+$${mbuint_LIBS} \
+$${bn_LIBS} \
+$${mp_LIBS} \
 $${build_numera_LIBS} \
+
+contains(NUMERA_OS,macosx|linux) {
+numera_LIBS += \
 -lpthread \
--ldl \
+-ldl
+} else {
+} # contains(NUMERA_OS,macosx|linux)
 
 contains(NUMERA_OS,linux) {
 numera_LIBS += \
 -lrt
 } else {
-}
+} # contains(NUMERA_OS,linux)
+
 

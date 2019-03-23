@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: libnumera.pri
 #
 # Author: $author$
-#   Date: 3/4/2018
+#   Date: 3/22/2019
 #
 # QtCreator .pri file for numera library libnumera
 ########################################################################
@@ -56,11 +56,13 @@ $${numera_DEFINES} \
 #
 libnumera_HEADERS += \
 $${NUMERA_SRC}/numera/base/base.hpp \
+$${NUMERA_SRC}/numera/lib/version.hpp \
+$${NUMERA_SRC}/numera/lib/numera/version.hpp \
 
 # libnumera SOURCES
 #
 libnumera_SOURCES += \
 $${NUMERA_SRC}/numera/base/base.cpp \
+$${NUMERA_SRC}/numera/lib/numera/version.cpp \
 
 ########################################################################
-

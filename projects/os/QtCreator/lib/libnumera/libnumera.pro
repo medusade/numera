@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: libnumera.pro
 #
 # Author: $author$
-#   Date: 3/4/2018
+#   Date: 3/22/2019
 #
 # QtCreator .pro file for numera library libnumera
 ########################################################################
@@ -48,7 +48,7 @@ $${libnumera_OBJECTIVE_HEADERS} \
 
 # OBJECTIVE_SOURCES
 #
-SOURCES += \
+OBJECTIVE_SOURCES += \
 $${libnumera_OBJECTIVE_SOURCES} \
 
 ########################################################################
@@ -56,12 +56,12 @@ $${libnumera_OBJECTIVE_SOURCES} \
 #
 HEADERS += \
 $${libnumera_HEADERS} \
+$${OBJECTIVE_HEADERS} \
 
 # SOURCES
 #
 SOURCES += \
 $${libnumera_SOURCES} \
-$${OBJECTIVE_SOURCES} \
 
 ########################################################################
 

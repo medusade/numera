@@ -1,5 +1,5 @@
 ########################################################################
-# Copyright (c) 1988-2018 $organization$
+# Copyright (c) 1988-2019 $organization$
 #
 # This software is provided by the author and contributors ``as is''
 # and any express or implied warranties, including, but not limited to,
@@ -16,7 +16,7 @@
 #   File: dsa.pro
 #
 # Author: $author$
-#   Date: 3/8/2018
+#   Date: 3/23/2019
 #
 # QtCreator .pro file for numera executable dsa
 ########################################################################
@@ -46,7 +46,7 @@ $${dsa_OBJECTIVE_HEADERS} \
 
 # OBJECTIVE_SOURCES
 #
-SOURCES += \
+OBJECTIVE_SOURCES += \
 $${dsa_OBJECTIVE_SOURCES} \
 
 ########################################################################
@@ -54,12 +54,12 @@ $${dsa_OBJECTIVE_SOURCES} \
 #
 HEADERS += \
 $${dsa_HEADERS} \
+$${OBJECTIVE_HEADERS} \
 
 # SOURCES
 #
 SOURCES += \
 $${dsa_SOURCES} \
-$${OBJECTIVE_SOURCES} \
 
 ########################################################################
 # FRAMEWORKS

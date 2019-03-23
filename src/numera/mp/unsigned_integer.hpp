@@ -67,23 +67,19 @@ public:
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod_inv
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
     virtual unsigned_integer& mod_exp
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& e, const unsigned_integer& b) {
-        return (unsigned_integer&)(*this);
-    }
-    virtual unsigned_integer& exp
-    (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
 
@@ -216,23 +212,19 @@ public:
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod_inv
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
     virtual unsigned_integer& mod_exp
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& e, const unsigned_integer& b) {
-        return (unsigned_integer&)(*this);
-    }
-    virtual unsigned_integer& exp
-    (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         return (unsigned_integer&)(*this);
     }
 

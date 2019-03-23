@@ -23,13 +23,14 @@
 #ifndef _NUMERA_MBU_H
 #define _NUMERA_MBU_H
 
-#include <mbi.h>
+#include "mbi.h"
 
 /**
  * struct mb_uint_t
  */
 struct mb_uint_t;
 typedef struct mb_uint_t {
+    mb_int_size_t size;
     unsigned char b[mb_int_size_max];
 } mb_uint_t;
 
@@ -37,44 +38,54 @@ typedef struct mb_uint_t {
 extern "C" {
 #endif /* defined(__cplusplus) */
 
-mb_uint_t* mbu_init(mb_uint_t *m);
-mb_uint_t* mbu_clear(mb_uint_t *m);
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_init(mb_uint_t *m);
 
-mb_uint_t* mbu_init_set_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_set_u(mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_init_set_u(mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_set_u(mb_uint_t *m, unsigned n);
 
-mb_uint_t* mbu_init_set(mb_uint_t *m, const mb_uint_t *n);
-mb_uint_t* mbu_set(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_init_set(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_set(mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_add_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_add(mb_uint_t *m, const mb_uint_t *n);
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_add_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_add(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_sub_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_sub(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_sub_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_sub(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_mul_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_mul(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_mul_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_mul(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_mod_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_mod(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_div_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_div(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_div_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_div(mb_uint_t *m, const mb_uint_t *n);
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_mod_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_mod(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_exp_u(mb_uint_t *m, unsigned x);
-mb_uint_t* mbu_exp(mb_uint_t *m, const mb_uint_t *x);
+mb_uint_t* mb_uint_mod_inv_u(mb_uint_t *r, const mb_uint_t *m, unsigned n);
+mb_uint_t* mb_uint_mod_inv(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n);
 
-mb_uint_t* mbu_inv_mod_u(mb_uint_t *m, unsigned n);
-mb_uint_t* mbu_inv_mod(mb_uint_t *m, const mb_uint_t *n);
+mb_uint_t* mb_uint_mod_exp_u(mb_uint_t *r, const mb_uint_t *m, unsigned x, const mb_uint_t *n);
+mb_uint_t* mb_uint_mod_exp(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *x, const mb_uint_t *n);
 
-mb_uint_t* mbu_exp_mod_u(mb_uint_t *m, unsigned x, const mb_uint_t *n);
-mb_uint_t* mbu_exp_mod(mb_uint_t *m, const mb_uint_t *x, const mb_uint_t *n);
+/**
+ **********************************************************************
+ **********************************************************************
+ */
 
 #if defined(__cplusplus)
 }
 #endif /* defined(__cplusplus) */
 
 #endif /* _NUMERA_MBU_H */
-
-        
-

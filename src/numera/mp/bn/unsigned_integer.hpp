@@ -257,6 +257,9 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
@@ -268,9 +271,6 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod_inv
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         BIGNUM* detached = 0, *t_ = 0, *c_ = 0, *b_ = 0, *a_ = 0;
@@ -300,17 +300,6 @@ public:
             && (e_ = e.attached_to()) && (c_ = c.attached_to()) && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
             LOG_DEBUG("BN_mod_exp(c_, a_, e_, b_, ctx_)...");
             BN_mod_exp(c_, a_, e_, b_, ctx_);
-        }
-        return (unsigned_integer&)(*this);
-    }
-    virtual unsigned_integer& exp
-    (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
-        BIGNUM* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
-        BN_CTX* ctx_ = 0;
-        if ((detached = this->attached_to()) && (ctx_ = this->ctx())
-            && (c_ = c.attached_to())  && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
-            LOG_DEBUG("BN_exp(c_, a_, b_, ctx_)...");
-            BN_exp(c_, a_, b_, ctx_);
         }
         return (unsigned_integer&)(*this);
     }

@@ -219,19 +219,19 @@ public:
         }
         return (unsigned_integer&)(*this);
     }
+
+    ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         MP_INT* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
         if ((detached = this->attached_to())
             && (c_ = c.attached_to())  && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
-            LOG_DEBUG("::mpz_mod(c_, a_, b_)...");
-            ::mpz_mod(c_, a_, b_);
+            LOG_DEBUG("::mpz_mmod(c_, a_, b_)...");
+            ::mpz_mmod(c_, a_, b_);
         }
         return (unsigned_integer&)(*this);
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual unsigned_integer& mod_inv
     (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
         MP_INT* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
@@ -249,14 +249,6 @@ public:
             && (e_ = e.attached_to()) && (c_ = c.attached_to()) && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
             LOG_DEBUG("::mpz_powm(c_, a_, e_, b_)...");
             ::mpz_powm(c_, a_, e_, b_);
-        }
-        return (unsigned_integer&)(*this);
-    }
-    virtual unsigned_integer& exp
-    (unsigned_integer& c, const unsigned_integer& a, const unsigned_integer& b) {
-        MP_INT* detached = 0, *c_ = 0, *b_ = 0, *a_ = 0;
-        if ((detached = this->attached_to())
-            && (c_ = c.attached_to())  && (b_ = b.attached_to()) && (a_ = a.attached_to())) {
         }
         return (unsigned_integer&)(*this);
     }

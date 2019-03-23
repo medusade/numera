@@ -21,15 +21,17 @@
 #ifndef _NUMERA_APP_CONSOLE_NUMERA_MAIN_OPT_HPP
 #define _NUMERA_APP_CONSOLE_NUMERA_MAIN_OPT_HPP
 
-#include "numera/console/main.hpp"
+#include "numera/console/lib/numera/version/main.hpp"
+#include "numera/console/mp/main.hpp"
 
 namespace numera {
 namespace app {
 namespace console {
 namespace numera {
 
-typedef main_implements main_opt_implements;
-typedef main main_opt_extends;
+typedef ::numera::console::lib::numera::version::maint
+< ::numera::console::mp::main::Implements, ::numera::console::mp::main> main_opt_extends;
+typedef main_opt_extends::Implements main_opt_implements;
 ///////////////////////////////////////////////////////////////////////
 ///  Class: main_opt
 ///////////////////////////////////////////////////////////////////////
@@ -43,6 +45,9 @@ public:
     main_opt() {
     }
     virtual ~main_opt() {
+    }
+private:
+    main_opt(const main_opt& copy) {
     }
 
     ///////////////////////////////////////////////////////////////////////

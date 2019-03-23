@@ -20,83 +20,89 @@
  *   Date: 2/21/2018
  **********************************************************************
  */
-#include <mbu.h>
-#include <dbprintf.h>
-#include <dbdump.h>
+#include "mbu.h"
+#include "mbuint.h"
 
-mb_uint_t* mbu_init(mb_uint_t *m) { 
-    return m; 
-}
-mb_uint_t* mbu_clear(mb_uint_t *m) { 
-    return m; 
-}
-
-mb_uint_t* mbu_init_set_u(mb_uint_t *m, unsigned n) { 
-    return m; 
-}
-mb_uint_t* mbu_set_u(mb_uint_t *m, unsigned n) { 
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_init(mb_uint_t *m) { 
     return m; 
 }
 
-mb_uint_t* mbu_init_set(mb_uint_t *m, const mb_uint_t *n) { 
+mb_uint_t* mb_uint_init_set_u(mb_uint_t *m, unsigned n) { 
     return m; 
 }
-mb_uint_t* mbu_set(mb_uint_t *m, const mb_uint_t *n) { 
-    return m; 
-}
-
-mb_uint_t* mbu_add_u(mb_uint_t *m, unsigned n) { 
-    return m; 
-}
-mb_uint_t* mbu_add(mb_uint_t *m, const mb_uint_t *n) { 
+mb_uint_t* mb_uint_set_u(mb_uint_t *m, unsigned n) { 
     return m; 
 }
 
-mb_uint_t* mbu_sub_u(mb_uint_t *m, unsigned n) { 
+mb_uint_t* mb_uint_init_set(mb_uint_t *m, const mb_uint_t *n) { 
     return m; 
 }
-mb_uint_t* mbu_sub(mb_uint_t *m, const mb_uint_t *n) { 
-    return m; 
-}
-
-mb_uint_t* mbu_mul_u(mb_uint_t *m, unsigned n) { 
-    return m; 
-}
-mb_uint_t* mbu_mul(mb_uint_t *m, const mb_uint_t *n) { 
+mb_uint_t* mb_uint_set(mb_uint_t *m, const mb_uint_t *n) { 
     return m; 
 }
 
-mb_uint_t* mbu_mod_u(mb_uint_t *m, unsigned n) { 
-    return m; 
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_add_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
 }
-mb_uint_t* mbu_mod(mb_uint_t *m, const mb_uint_t *n) { 
-    return m; 
-}
-
-mb_uint_t* mbu_div_u(mb_uint_t *m, unsigned n) { 
-    return m; 
-}
-mb_uint_t* mbu_div(mb_uint_t *m, const mb_uint_t *n) { 
-    return m; 
+mb_uint_t* mb_uint_add(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
 }
 
-mb_uint_t* mbu_exp_u(mb_uint_t *m, unsigned x) { 
-    return m; 
+mb_uint_t* mb_uint_sub_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
 }
-mb_uint_t* mbu_exp(mb_uint_t *m, const mb_uint_t *x) { 
-    return m; 
-}
-
-mb_uint_t* mbu_inv_mod_u(mb_uint_t *m, unsigned n) { 
-    return m; 
-}
-mb_uint_t* mbu_inv_mod(mb_uint_t *m, const mb_uint_t *n) { 
-    return m; 
+mb_uint_t* mb_uint_sub(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
 }
 
-mb_uint_t* mbu_exp_mod_u(mb_uint_t *m, unsigned x, const mb_uint_t *n) { 
-    return m; 
+mb_uint_t* mb_uint_mul_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
 }
-mb_uint_t* mbu_exp_mod(mb_uint_t *m, const mb_uint_t *x, const mb_uint_t *n) { 
-    return m; 
+mb_uint_t* mb_uint_mul(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
 }
+
+mb_uint_t* mb_uint_div_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
+}
+mb_uint_t* mb_uint_div(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
+}
+
+/**
+ **********************************************************************
+ **********************************************************************
+ */
+mb_uint_t* mb_uint_mod_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
+}
+mb_uint_t* mb_uint_mod(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
+}
+
+mb_uint_t* mb_uint_mod_inv_u(mb_uint_t *r, const mb_uint_t *m, unsigned n) { 
+    return r; 
+}
+mb_uint_t* mb_uint_mod_inv(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *n) { 
+    return r; 
+}
+
+mb_uint_t* mb_uint_mod_exp_u(mb_uint_t *r, const mb_uint_t *m, unsigned x, const mb_uint_t *n) { 
+    return r; 
+}
+mb_uint_t* mb_uint_mod_exp(mb_uint_t *r, const mb_uint_t *m, const mb_uint_t *x, const mb_uint_t *n) { 
+    return r; 
+}
+
+/**
+ **********************************************************************
+ **********************************************************************
+ */
